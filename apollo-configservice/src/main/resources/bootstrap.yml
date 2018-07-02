@@ -1,0 +1,25 @@
+eureka:
+  instance:
+    hostname: ${hostname:localhost}
+    homePageUrl: http://47.96.129.29:8001
+    preferIpAddress: false
+  server:
+    peerEurekaNodesUpdateIntervalMs: 60000
+    enableSelfPreservation: false
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:8001/eureka/
+    healthcheck:
+      enabled: true
+    eurekaServiceUrlPollIntervalSeconds: 60
+
+endpoints:
+  health:
+    sensitive: false
+
+management:
+  security:
+    enabled: false
+  health:
+    status:
+      order: DOWN, OUT_OF_SERVICE, UNKNOWN, UP

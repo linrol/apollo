@@ -1,0 +1,9 @@
+mvn deploy:deploy-file -DgroupId=com.ctrip.framework.apollo -DartifactId=apollo -Dversion=0.10.2 -Dpackaging=pom -Dfile=D:\apollo-0.10.2.pom -Durl=http://47.96.128.158:8081/repository/maven-releases/ -DrepositoryId=nexus-releases
+
+mvn deploy:deploy-file -DgroupId=com.ctrip.framework.apollo -DartifactId=apollo-buildtools -Dversion=0.10.2 -Dpackaging=jar -Dfile=D:\apollo-buildtools-0.10.2.jar -Durl=http://47.96.128.158:8081/repository/maven-releases/ -DrepositoryId=nexus-releases
+
+
+mvn deploy:deploy-file -DgroupId=com.ctrip.framework.apollo -DartifactId=apollo-client -Dversion=0.10.2 -Dpackaging=jar -Dfile=D:\apollo-client-0.10.2.jar -Durl=http://47.96.128.158:8081/repository/maven-releases/ -DrepositoryId=nexus-releases
+
+
+mvn deploy:deploy-file -DgroupId=com.ctrip.framework.apollo -DartifactId=apollo-core -Dversion=0.10.2 -Dpackaging=jar -Dfile=D:\apollo-core-0.10.2.jar -Durl=http://47.96.128.158:8081/repository/maven-releases/ -DrepositoryId=nexus-releases

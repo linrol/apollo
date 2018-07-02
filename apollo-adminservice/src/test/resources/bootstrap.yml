@@ -1,0 +1,22 @@
+eureka:
+  instance:
+    homePageUrl: http://47.96.129.29:8011
+    preferIpAddress: false
+    hostname: ${hostname:localhost}
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:8090/eureka/
+    healthcheck:
+      enabled: true
+      
+
+endpoints:
+  health:
+    sensitive: false
+
+management:
+  security:
+    enabled: false
+  health:
+    status:
+      order: DOWN, OUT_OF_SERVICE, UNKNOWN, UP 
