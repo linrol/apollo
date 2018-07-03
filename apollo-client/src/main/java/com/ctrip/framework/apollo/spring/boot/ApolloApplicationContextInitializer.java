@@ -13,6 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContextInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.core.annotation.Order;
 import org.springframework.core.env.CompositePropertySource;
 import org.springframework.core.env.ConfigurableEnvironment;
 
@@ -33,6 +34,7 @@ import org.springframework.core.env.ConfigurableEnvironment;
  *   apollo.bootstrap.namespaces = application,FX.apollo
  * </pre>
  */
+@Order(1)
 public class ApolloApplicationContextInitializer implements
     ApplicationContextInitializer<ConfigurableApplicationContext> {
   private static final Logger logger = LoggerFactory.getLogger(ApolloApplicationContextInitializer.class);
