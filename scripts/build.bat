@@ -38,7 +38,7 @@ echo "==== building portal finished ===="
 
 echo "==== starting to build client ===="
 
-call mvn clean install -DskipTests -pl apollo-client -am %META_SERVERS_OPTS%
+call mvn clean deploy -DskipTests -pl apollo-client -am %META_SERVERS_OPTS%
 
 echo "==== building client finished ===="
 
