@@ -7,7 +7,6 @@
 （1）下面为逻辑删除：
 
 set @appId = 'test_operater';
-
 Use `apolloportaldb`;
 
 update `App` set `IsDeleted` = 1 where `AppId` = @appId and `IsDeleted` = 0;
@@ -29,7 +28,6 @@ drop temporary table `RoleIds`;
 （2）下面为物理删除：
 
 set @appId = 'test_operater';
-
 Use `apolloportaldb`;
 
 delete from `App` where `AppId` = @appId;
@@ -56,7 +54,6 @@ drop temporary table `RoleIds`;
 （1）下面为逻辑删除：
 
 set @appId = 'test_operater';
-
 Use `apolloconfigdb_test`;
 
 update `App` set `IsDeleted` = 1 where `AppId` = @appId and `IsDeleted` = 0;
@@ -80,7 +77,6 @@ drop temporary table `NamespaceIds`;
 （2）下面为物理删除：
 
 set @appId = 'test_operater';
-
 Use `apolloconfigdb_test`;
 
 delete from `App` where `AppId` = @appId;
@@ -101,7 +97,6 @@ delete from `Item` where `NamespaceId` in (select `Id` from `NamespaceIds`);
 delete from `NamespaceLock` where `NamespaceId` in (select `Id` from `NamespaceIds`);
 drop temporary table `NamespaceIds`;
 
----------------------------------------------------------------------------------------------------------------------------------------------------
 
 二.删除私有namespace（公共namespace可以在页面上删除）
 
@@ -112,9 +107,7 @@ drop temporary table `NamespaceIds`;
 （1）下面为逻辑删除：
 
 set @appId = 'test_operater';
-
 set @namespaceName = 'test-wy';
-
 Use `apolloportaldb`;
 
 update `AppNamespace` set `IsDeleted` = 1 where `AppId` = @appId and `Name` = @namespaceName and `IsPublic` = 0 and `IsDeleted` = 0;
@@ -134,9 +127,7 @@ drop temporary table `RoleIds`;
 （2）下面为物理删除：
 
 set @appId = 'test_operater';
-
 set @namespaceName = 'test-wy';
-
 Use `apolloportaldb`;
 
 delete from `AppNamespace`  where `AppId` =@ppId and `Name` = @namespaceName;
@@ -160,10 +151,9 @@ drop temporary table `RoleIds`;
 （1）下面为逻辑删除：
 
 set @appId = 'test_operater';
-
 set @namespaceName = 'test-wy';
-
 Use apolloconfigdb_test;
+
 update `AppNamespace` set `IsDeleted` = 1 where `AppId` = @appId and `Name` = @namespaceName and `IsPublic` = 0 and `IsDeleted` = 0;
 update `Commit` set `IsDeleted` = 1 where `AppId` = @appId and `NamespaceName` = @namespaceName and `IsDeleted` = 0;
 update `GrayReleaseRule` set `IsDeleted` = 1 where `AppId` = @appId and `NamespaceName` = @namespaceName and `IsDeleted` = 0;
@@ -182,9 +172,7 @@ drop temporary table `Namespaces`;
 （2）下面为物理删除：
 
 set @appId = 'test_operater';
-
 set @namespaceName = 'test-wy';
-
 Use apolloconfigdb_test;
 
 delete from `AppNamespace` where `AppId` = @appId and `Name` = @namespaceName;
