@@ -4,6 +4,9 @@ import com.ctrip.framework.apollo.biz.ApolloBizConfig;
 import com.ctrip.framework.apollo.common.ApolloCommonConfig;
 import com.ctrip.framework.apollo.metaservice.ApolloMetaServiceConfig;
 
+import io.prometheus.client.spring.boot.EnablePrometheusEndpoint;
+import io.prometheus.client.spring.boot.EnableSpringBootMetricsCollector;
+
 import org.springframework.boot.actuate.system.ApplicationPidFileWriter;
 import org.springframework.boot.actuate.system.EmbeddedServerPortFileWriter;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -32,6 +35,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
     ApolloBizConfig.class,
     ConfigServiceApplication.class,
     ApolloMetaServiceConfig.class})
+@EnablePrometheusEndpoint
+@EnableSpringBootMetricsCollector
 public class ConfigServiceApplication {
 
   public static void main(String[] args) throws Exception {

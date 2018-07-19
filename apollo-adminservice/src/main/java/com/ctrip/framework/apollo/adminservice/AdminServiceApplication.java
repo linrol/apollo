@@ -3,6 +3,9 @@ package com.ctrip.framework.apollo.adminservice;
 import com.ctrip.framework.apollo.biz.ApolloBizConfig;
 import com.ctrip.framework.apollo.common.ApolloCommonConfig;
 
+import io.prometheus.client.spring.boot.EnablePrometheusEndpoint;
+import io.prometheus.client.spring.boot.EnableSpringBootMetricsCollector;
+
 import org.springframework.boot.actuate.system.ApplicationPidFileWriter;
 import org.springframework.boot.actuate.system.EmbeddedServerPortFileWriter;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -20,6 +23,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @PropertySource(value = {"classpath:adminservice.properties"})
 @EnableAutoConfiguration
 @EnableTransactionManagement
+@EnablePrometheusEndpoint
+@EnableSpringBootMetricsCollector
 @ComponentScan(basePackageClasses = {ApolloCommonConfig.class,
     ApolloBizConfig.class,
     AdminServiceApplication.class})

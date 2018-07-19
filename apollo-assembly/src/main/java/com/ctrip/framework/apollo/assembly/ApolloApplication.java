@@ -4,6 +4,9 @@ import com.ctrip.framework.apollo.adminservice.AdminServiceApplication;
 import com.ctrip.framework.apollo.configservice.ConfigServiceApplication;
 import com.ctrip.framework.apollo.portal.PortalApplication;
 
+import io.prometheus.client.spring.boot.EnablePrometheusEndpoint;
+import io.prometheus.client.spring.boot.EnableSpringBootMetricsCollector;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.actuate.system.ApplicationPidFileWriter;
@@ -16,6 +19,8 @@ import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class,
     HibernateJpaAutoConfiguration.class})
+@EnablePrometheusEndpoint
+@EnableSpringBootMetricsCollector
 public class ApolloApplication {
 
   private static final Logger logger = LoggerFactory.getLogger(ApolloApplication.class);
