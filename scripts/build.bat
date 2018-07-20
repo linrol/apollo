@@ -1,21 +1,23 @@
 @echo off
 
 rem apollo config db info
-set apollo_config_db_url="jdbc:mysql://101.37.253.34:3306/ApolloConfigDB_test?characterEncoding=utf8"
-set apollo_config_db_username="apolloconfigdb_test"
-set apollo_config_db_password="apolloconfigdb_test"
+set apollo_config_db_url="jdbc:mysql://172.16.69.120:3306/ApolloConfigDB?characterEncoding=utf8"
+set apollo_config_db_username="apollo_app"
+set apollo_config_db_password="qVR3QT9HsrV4zuMq"
 
 rem apollo portal db info
-set apollo_portal_db_url="jdbc:mysql://101.37.253.34:3306/ApolloPortalDB?characterEncoding=utf8"
-set apollo_portal_db_username="apolloportaldb_test"
-set apollo_portal_db_password="apolloportaldb_test"
+set apollo_portal_db_url="jdbc:mysql://172.16.69.120:3306/ApolloPortalDB?characterEncoding=utf8"
+set apollo_portal_db_username="apollo_app"
+set apollo_portal_db_password="qVR3QT9HsrV4zuMq"
 
 rem meta server url, different environments should have different meta server addresses
 
-set fat_meta="http://47.96.129.29:8001"
-set pro_meta="http://47.96.129.29:8000"
+set dev_meta="http://47.96.129.29:8001"
+set fat_meta="http://47.96.129.29:8002"
+set uat_meta="http://47.96.129.29:8003"
+set pro_meta="http://config.hd1pro.boyacx.com:8001"
 
-set META_SERVERS_OPTS=-Dfat_meta=%fat_meta% -Dpro_meta=%pro_meta%
+set META_SERVERS_OPTS=-Ddev_meta=%dev_meta% -Dfat_meta=%fat_meta% Duat_meta=%uat_meta% -Dpro_meta=%pro_meta%
 
 rem =============== Please do not modify the following content =============== 
 rem go to script directory
