@@ -17,7 +17,7 @@ set fat_meta="http://47.96.129.29:8002"
 set uat_meta="http://47.96.129.29:8003"
 set pro_meta="http://config.hd1pro.boyacx.com:8001"
 
-set META_SERVERS_OPTS=-Ddev_meta=%dev_meta% -Dfat_meta=%fat_meta% Duat_meta=%uat_meta% -Dpro_meta=%pro_meta%
+set META_SERVERS_OPTS=-Ddev_meta=%dev_meta% -Dfat_meta=%fat_meta% -Duat_meta=%uat_meta% -Dpro_meta=%pro_meta%
 
 rem =============== Please do not modify the following content =============== 
 rem go to script directory
@@ -40,7 +40,7 @@ echo "==== building portal finished ===="
 
 echo "==== starting to build client ===="
 
-call mvn clean deploy -DskipTests -pl apollo-client -am %META_SERVERS_OPTS%
+call mvn clean package -DskipTests -pl apollo-client -am %META_SERVERS_OPTS%
 
 echo "==== building client finished ===="
 
