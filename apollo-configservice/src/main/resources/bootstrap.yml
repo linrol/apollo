@@ -1,7 +1,7 @@
 eureka:
   instance:
     hostname: ${hostname:localhost}
-    homePageUrl: http://47.96.129.29:8001
+    homePageUrl: http://47.96.51.114:8101
     preferIpAddress: false
   server:
     peerEurekaNodesUpdateIntervalMs: 60000
